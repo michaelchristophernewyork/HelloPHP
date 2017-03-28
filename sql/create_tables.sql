@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS Users CASCADE;
 CREATE TABLE Users (
   id               SERIAL PRIMARY KEY,
   username         TEXT                        NOT NULL UNIQUE,
+  display_name     TEXT                        NOT NULL,
   password         TEXT                        NOT NULL,
   email            TEXT                        NOT NULL,
   last_login       TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT (now()),
