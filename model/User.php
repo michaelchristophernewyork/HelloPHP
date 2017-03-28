@@ -23,16 +23,16 @@ class User
         $req = $db->prepare('SELECT `username`, `password`, `email`, `lastlogin`, `active` FROM `users` WHERE `username` = :username');
         $req->execute(array('username' => $username));
         $user = $req->fetch();
-        return User::create()->set_username($user['username'])->set_password($user['password'])->set_email($user['email'])->set_lastlogin($user['lastlogin'])->set_active($user['active']);
+        return User::create()->set_username($user['username'])->set_password($user['password'])->set_email($user['email'])->set_last_login($user['lastlogin'])->set_is_active($user['active']);
     }
 
-    private function set_active($input)
+    private function set_is_active($input)
     {
         $this->active = $input;
         return $this;
     }
 
-    private function set_lastlogin($input)
+    private function set_last_login($input)
     {
         $this->lastlogin = $input;
         return $this;
@@ -53,6 +53,17 @@ class User
     private function set_username($input)
     {
         $this->username = $input;
+        return $this;
+    }
+
+    private function set_display_name($input)
+    {
+        if ($input != null)
+        {
+            $this->display_name = $input;
+        } else {
+            $this->display_name = $this->get_username();
+        }
         return $this;
     }
 
@@ -93,14 +104,14 @@ class User
         $req->execute();
     }
 
-    public function get_emailaddress()
+    public function get_email()
     {
         return $this->email;
     }
 
-    public function get_displayname()
+    public function get_display_name()
     {
-        return $this->displayname;
+        return $this->display_name;
     }
 
     public function get_username()
