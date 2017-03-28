@@ -1,6 +1,5 @@
 {
   "require": {
-    "components/jquery": "^3.1",
     "twbs/bootstrap": "^3.3",
     "phpunit/phpunit": "^6.0",
     "mobiledetect/mobiledetectlib": "^2.8",
