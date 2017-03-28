@@ -9,7 +9,5 @@ highlight_string("<?php\n\$data =\n" . var_export(\pg_fetch_all($result), true) 
 echo "\r\n";
 
 require_once('vendor/autoload.php'); 
-$users = \model\User::all();
-foreach ($users as $user) {
-    echo $user->get_username();
-}
+$user = \model\User::fetch_by_username('admin');
+echo $user->get_username();
