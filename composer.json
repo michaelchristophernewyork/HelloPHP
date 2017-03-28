@@ -1,6 +1,5 @@
 {
   "require": {
-    "phpunit/phpunit": "^6.0",
     "mobiledetect/mobiledetectlib": "^2.8",
     "twig/twig": "~2.0"
   },
