@@ -5,8 +5,7 @@
     "phpunit/phpunit": "^6.0",
     "mobiledetect/mobiledetectlib": "^2.8",
     "twig/twig": "~2.0",
-    "doctrine/orm": "^2.5",
-    "monolog/monolog": "^1.22"
+    "doctrine/orm": "^2.5"
   },
   "autoload": {
     "psr-4": {
