@@ -1,8 +1,4 @@
 {
-  "require": {
-    "mobiledetect/mobiledetectlib": "^2.8",
-    "twig/twig": "~2.0"
-  },
   "autoload": {
     "psr-4": {
       "model\\": "model"
