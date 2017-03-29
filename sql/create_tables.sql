@@ -186,3 +186,4 @@ INSERT INTO optionalfields (name, form_name, type, choices, position, question, 
     "2": "Faculty / Staff"
   }', 1,
    '\"What is your Campus Affiliation?\"', FALSE, TRUE);
+   
