@@ -21,7 +21,7 @@ class User
     {
         echo $username;
         $db = Db::getInstance();
-        $req = $db->prepare('SELECT `username`, `password`, `email`, `lastlogin`, `active` FROM `users` WHERE `username` = :username');
+        $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users WHERE username = :username');
         $req->execute(array('username' => $username));
         $user = $req->fetch();
         return User::create()->set_username($user['username'])->set_password($user['password'])->set_email($user['email'])->set_last_login($user['lastlogin'])->set_is_active($user['active']);
