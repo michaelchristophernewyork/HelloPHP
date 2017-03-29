@@ -4,50 +4,50 @@ class User
 {
     private $id;
     private $username;
-    private $display_name;
+    private $displayName;
     private $password;
     private $email;
-    private $last_login;
-    private $is_active;
-    private $is_administrator;
-    private $is_reporter;
-    private $is_banned;
+    private $lastLogin;
+    private $isActive;
+    private $isAdministrator;
+    private $isReporter;
+    private $isBanned;
 
     function __construct()
     {
     }
 
-    private function set_is_active($input)
+    private function setIsActive($input)
     {
         $this->active = $input;
         return $this;
     }
 
-    private function set_last_login($input)
+    private function setLastLogin($input)
     {
         $this->lastlogin = $input;
         return $this;
     }
 
-    private function set_email($input)
+    private function setEmail($input)
     {
         $this->email = $input;
         return $this;
     }
 
-    private function set_password($input)
+    private function setpassword($input)
     {
         $this->password = $input;
         return $this;
     }
 
-    private function set_username($input)
+    private function setUsername($input)
     {
         $this->username = $input;
         return $this;
     }
 
-    private function set_display_name($input)
+    private function setDisplayName($input)
     {
         if ($input != null)
         {
@@ -64,7 +64,7 @@ class User
         return $instance;
     }
 
-    public static function fetch_all()
+    public static function fetchAll()
     {
         $db = Db::getInstance();
         $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users');
@@ -82,7 +82,7 @@ class User
         return $users;
     }
 
-    public static function fetch_by_username($username)
+    public static function fetchByUsername($username)
     {
         echo $username;
         $db = Db::getInstance();
@@ -98,7 +98,7 @@ class User
             ->set_is_active($user['active']);
     }
 
-    public static function remove_user($username)
+    public static function removeUser($username)
     {
         $db = Db::getInstance();
         $req = $db->prepare('DELETE FROM users WHERE username = :username');
@@ -106,22 +106,22 @@ class User
         $req->execute();
     }
 
-    public function get_email()
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function get_display_name()
+    public function getDisplayName()
     {
         return $this->display_name;
     }
 
-    public function get_username()
+    public function getUsername()
     {
         return $this->username;
     }
 
-    function fetch_by_email($email)
+    function fetchByEmail($email)
     {
         $db = Db::getInstance();
         $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users WHERE email = :email LIMIT 1');
@@ -138,7 +138,7 @@ class User
 
     // INSERT INTO users (username, display_name, password, email) VALUES ('kushal', 'kushal', '$2b$12$bVGt6HWAxldbT4f2krB02uPQJTv6vWlWZjVH33.JdbP6ToA4THt2W', 'khada@qc.cuny.edu')
 
-    public function add_user($username, $display_name, $password, $email, $active)
+    public function addUser($username, $display_name, $password, $email, $active)
     {
         $db = Db::getInstance();
         $req = $db->prepare('INSERT INTO users (username, display_name, password, email, last_login) VALUES (:username, :display_name, :password, :email)');
@@ -149,7 +149,7 @@ class User
         $req->execute();
     }
 
-    public function verify_password($input)
+    public function verifyPassword($input)
     {
         if (password_verify($input, $this->password)) {
             return true;
@@ -158,7 +158,7 @@ class User
         }
     }
 
-    public function add_user_ldap($username)
+    public function addUserLdap($username)
     {
         $this->set_username($username);
         $this->set_email($this->ReturnEmailAddress($username, \model\Setting::fetch_all()));
@@ -189,7 +189,7 @@ class User
         return "fail";
     }
 
-    private function set_displayname($input)
+    private function setDisplayName($input)
     {
         $this->displayname = $input;
         return $this;

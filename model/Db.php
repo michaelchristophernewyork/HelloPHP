@@ -3,7 +3,7 @@
 namespace model;
 class Db
 {
-    private static $instance = NULL;
+    private static $instance = null;
 
     private function __construct()
     {
@@ -11,10 +11,12 @@ class Db
 
     public static function getInstance()
     {
-        if (!isset(self::$instance)) {
-            $pdo_options[\PDO::ATTR_ERRMODE] = \PDO::ERRMODE_EXCEPTION;
-            $dbname = 'pgsql:host=' . Config::read('db.host') . ';dbname=' . Config::read('db.basename');
-            self::$instance = new \PDO($dbname, Config::read('db.user'), Config::read('db.password'), $pdo_options);
+        if (!isset(self::$_instance)) {
+            $pdoOptions[\PDO::ATTR_ERRMODE] = \PDO::ERRMODE_EXCEPTION;
+            $dbName = 'pgsql:host=' . Config::read('db.host') . 
+            ';dbname=' . 
+            Config::read('db.basename');
+            self::$_instance = new \PDO($dbName, Config::read('db.user'), Config::read('db.password'), $pdoOptions);
         }
         return self::$instance;
     }
