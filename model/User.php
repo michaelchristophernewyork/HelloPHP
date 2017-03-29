@@ -72,12 +72,12 @@ class User
         $users = array();
         foreach ($req->fetchAll() as $user) {
             array_push($users, User::create()
-                ->set_username($user['username'])
-                ->set_display_name($user['display_name'])
-                ->set_password($user['password'])
-                ->set_email($user['email'])
-                ->set_lastlogin($user['lastlogin'])
-                ->set_active($user['active']));
+                ->setUsername($user['username'])
+                ->setDisplayName($user['display_name'])
+                ->setPassword($user['password'])
+                ->setEmail($user['email'])
+                ->setLastLogin($user['lastlogin'])
+                ->setIsActive($user['active']));
         }
         return $users;
     }
