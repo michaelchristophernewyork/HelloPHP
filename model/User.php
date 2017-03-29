@@ -165,12 +165,12 @@ class User
 
     // INSERT INTO users (username, display_name, password, email) VALUES ('kushal', 'kushal', '$2b$12$bVGt6HWAxldbT4f2krB02uPQJTv6vWlWZjVH33.JdbP6ToA4THt2W', 'khada@qc.cuny.edu')
 
-    public function addUser($username, $display_name, $password, $email, $active)
+    public function addUser($username, $displayName, $password, $email, $active)
     {
         $db = Db::getInstance();
         $req = $db->prepare('INSERT INTO users (username, display_name, password, email, last_login) VALUES (:username, :display_name, :password, :email)');
         $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
-        $req->bindParam(':display_name', $display_name, \PDO::PARAM_STR, 255);
+        $req->bindParam(':display_name', $displayName, \PDO::PARAM_STR, 255);
         $req->bindParam(':password', $password, \PDO::PARAM_STR, 255);
         $req->bindParam(':email', $email, \PDO::PARAM_STR, 255);
         $req->execute();
