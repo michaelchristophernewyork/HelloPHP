@@ -193,19 +193,19 @@ class User
         return $this;
     }
 
-    function ReturnEmailAddress($input_username, $settings)
+    function ReturnEmailAddress($inputUsername, $settings)
     {
-        return $this->ReturnParameter($input_username, "mail", $settings);
+        return $this->ReturnParameter($inputUsername, "mail", $settings);
     }
 
-    function ReturnParameter($input_username, $input_parameter, $settings)
+    function ReturnParameter($inputUsername, $input_parameter, $settings)
     {
         $ldapserver = $settings["ldap_baseDN"];
         $qc_username = $settings["service_username"];
         $password = $settings["service_password"];
         $ldap = ldap_connect($ldapserver);
         if ($bind = ldap_bind($ldap, $qc_username, $password)) {
-            $result = ldap_search($ldap, "", "(CN=$input_username)") or die ("Error in search query: " . ldap_error($ldap));
+            $result = ldap_search($ldap, "", "(CN=$inputUsername)") or die ("Error in search query: " . ldap_error($ldap));
             $data = ldap_get_entries($ldap, $result);
             if (isset($data[0][$input_parameter][0])) {
                 return $data[0][$input_parameter][0];
@@ -216,9 +216,9 @@ class User
         return "fail";
     }
 
-    function ReturnDisplayName($input_username, $settings)
+    function ReturnDisplayName($inputUsername, $settings)
     {
-        return $this->ReturnParameter($input_username, "displayname", $settings);
+        return $this->ReturnParameter($inputUsername, "displayname", $settings);
     }
 
     function IsNotNullOrEmptyString($question)
