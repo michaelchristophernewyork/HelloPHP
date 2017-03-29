@@ -119,7 +119,7 @@ class User
                 ->setIsActive($user['is_active'])
                 ->setIsAdministrator($user['is_administrator'])
                 ->setIsReporter($user['active'])
-                ->setIsBanned($user['is_banned']));
+                ->setIsBanned($user['is_banned']))
     }
 
     public static function removeUser($username)
