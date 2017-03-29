@@ -141,6 +141,15 @@ class User
         $req->execute();
     }
 
+    public function verify_password($input)
+    {
+        if (password_verify($input, $this->password)) {
+           return true;
+        } else {
+            return false;
+        }
+    }
+
     public function add_user_ldap($username)
     {
         $this->set_username($username);
