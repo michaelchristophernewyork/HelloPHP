@@ -19,6 +19,7 @@ class User
 
     public static function fetch_by_username($username)
     {
+        echo $username;
         $db = Db::getInstance();
         $req = $db->prepare('SELECT `username`, `password`, `email`, `lastlogin`, `active` FROM `users` WHERE `username` = :username');
         $req->execute(array('username' => $username));
