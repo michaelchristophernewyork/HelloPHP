@@ -19,6 +19,24 @@ class User
 
     private function setIsActive($input)
     {
+        $this->isActive = $input;
+        return $this;
+    }    
+    
+    private function setIsAdministrator($input)
+    {
+        $this->isAdministrator = $input;
+        return $this;
+    }
+
+    private function setIsReporter($input)
+    {
+        $this->isReporter = $input;
+        return $this;
+    }
+
+    private function setIsBanned($input)
+    {
         $this->active = $input;
         return $this;
     }
