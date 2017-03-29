@@ -69,9 +69,9 @@ class User
     {
         if ($input != null)
         {
-            $this->display_name = $input;
+            $this->displayName = $input;
         } else {
-            $this->display_name = $this->get_username();
+            $this->displayName = $this->getUsername();
         }
         return $this;
     }
