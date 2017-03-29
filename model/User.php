@@ -189,12 +189,6 @@ class User
         return "fail";
     }
 
-    private function setDisplayName($input)
-    {
-        $this->displayname = $input;
-        return $this;
-    }
-
     function ReturnDisplayName($input_username, $settings)
     {
         return $this->ReturnParameter($input_username, "displayname", $settings);
