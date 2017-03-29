@@ -119,7 +119,7 @@ class User
                 ->setIsActive($user['is_active'])
                 ->setIsAdministrator($user['is_administrator'])
                 ->setIsReporter($user['active'])
-                ->setIsBanned($user['is_banned']))
+                ->setIsBanned($user['is_banned']);
     }
 
     public static function removeUser($username)
@@ -160,7 +160,7 @@ class User
                 ->setIsActive($user['is_active'])
                 ->setIsAdministrator($user['is_administrator'])
                 ->setIsReporter($user['active'])
-                ->setIsBanned($user['is_banned']));
+                ->setIsBanned($user['is_banned']);
     }
 
     // INSERT INTO users (username, display_name, password, email) VALUES ('kushal', 'kushal', '$2b$12$bVGt6HWAxldbT4f2krB02uPQJTv6vWlWZjVH33.JdbP6ToA4THt2W', 'khada@qc.cuny.edu')
