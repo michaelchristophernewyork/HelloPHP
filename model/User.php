@@ -94,8 +94,11 @@ class User
                 ->setDisplayName($user['display_name'])
                 ->setPassword($user['password'])
                 ->setEmail($user['email'])
-                ->setLastLogin($user['lastlogin'])
-                ->setIsActive($user['active']));
+                ->setLastLogin($user['last_login'])
+                ->setIsActive($user['is_active'])
+                ->setIsAdministrator($user['is_administrator'])
+                ->setIsReporter($user['active'])
+                ->setIsBanned($user['is_banned']));
         }
         return $users;
     }
@@ -108,12 +111,15 @@ class User
         $req->execute(array('username' => $username));
         $user = $req->fetch();
         return User::create()
-            ->set_username($user['username'])
-            ->set_display_name($user['display_name'])
-            ->set_password($user['password'])
-            ->set_email($user['email'])
-            ->set_last_login($user['lastlogin'])
-            ->set_is_active($user['active']);
+                ->setUsername($user['username'])
+                ->setDisplayName($user['display_name'])
+                ->setPassword($user['password'])
+                ->setEmail($user['email'])
+                ->setLastLogin($user['last_login'])
+                ->setIsActive($user['is_active'])
+                ->setIsAdministrator($user['is_administrator'])
+                ->setIsReporter($user['active'])
+                ->setIsBanned($user['is_banned']));
     }
 
     public static function removeUser($username)
@@ -146,12 +152,15 @@ class User
         $req->execute(array('email' => $email));
         $user = $req->fetch();
         return User::create()
-            ->set_username($user['username'])
-            ->set_display_name($user['display_name'])
-            ->set_password($user['password'])
-            ->set_email($user['email'])
-            ->set_last_login($user['lastlogin'])
-            ->set_is_active($user['active']);
+                ->setUsername($user['username'])
+                ->setDisplayName($user['display_name'])
+                ->setPassword($user['password'])
+                ->setEmail($user['email'])
+                ->setLastLogin($user['last_login'])
+                ->setIsActive($user['is_active'])
+                ->setIsAdministrator($user['is_administrator'])
+                ->setIsReporter($user['active'])
+                ->setIsBanned($user['is_banned']));
     }
 
     // INSERT INTO users (username, display_name, password, email) VALUES ('kushal', 'kushal', '$2b$12$bVGt6HWAxldbT4f2krB02uPQJTv6vWlWZjVH33.JdbP6ToA4THt2W', 'khada@qc.cuny.edu')
