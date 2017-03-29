@@ -1,5 +1,5 @@
 <?php
-namespace model;
+namespace models;
 class User
 {
     private $id;
@@ -15,16 +15,6 @@ class User
 
     function __construct()
     {
-    }
-
-    public static function fetch_by_username($username)
-    {
-        echo $username;
-        $db = Db::getInstance();
-        $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users WHERE username = :username');
-        $req->execute(array('username' => $username));
-        $user = $req->fetch();
-        return User::create()->set_username($user['username'])->set_display_name($user['display_name'])->set_password($user['password'])->set_email($user['email'])->set_last_login($user['lastlogin'])->set_is_active($user['active']);
     }
 
     private function set_is_active($input)
@@ -77,30 +67,41 @@ class User
     public static function fetch_all()
     {
         $db = Db::getInstance();
-        $req = $db->prepare('SELECT `username`, `password`, `email`, `lastlogin`, `active` FROM `users`');
+        $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users');
         $req->execute();
         $users = array();
         foreach ($req->fetchAll() as $user) {
-            array_push($users, User::create()->set_username($user['username'])->set_password($user['password'])->set_email($user['email'])->set_lastlogin($user['lastlogin'])->set_active($user['active']));
+            array_push($users, User::create()
+                ->set_username($user['username'])
+                ->set_display_name($user['display_name'])
+                ->set_password($user['password'])
+                ->set_email($user['email'])
+                ->set_lastlogin($user['lastlogin'])
+                ->set_active($user['active']));
         }
         return $users;
     }
 
-    public static function all()
+    public static function fetch_by_username($username)
     {
-        $list = [];
+        echo $username;
         $db = Db::getInstance();
-        $req = $db->query('SELECT `username`, `password`, `email`, `lastlogin`, `active` FROM `users`');
-        foreach ($req->fetchAll() as $user) {
-            $list[] = User::create()->set_username($user['username'])->set_password($user['password'])->set_email($user['email'])->set_lastlogin($user['lastlogin'])->set_active($user['active']);
-        }
-        return $list;
+        $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users WHERE username = :username');
+        $req->execute(array('username' => $username));
+        $user = $req->fetch();
+        return User::create()
+            ->set_username($user['username'])
+            ->set_display_name($user['display_name'])
+            ->set_password($user['password'])
+            ->set_email($user['email'])
+            ->set_last_login($user['lastlogin'])
+            ->set_is_active($user['active']);
     }
 
     public static function remove_user($username)
     {
         $db = Db::getInstance();
-        $req = $db->prepare('DELETE FROM `users` WHERE `username` = :username');
+        $req = $db->prepare('DELETE FROM users WHERE username = :username');
         $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
         $req->execute();
     }
@@ -123,28 +124,35 @@ class User
     function fetch_by_email($email)
     {
         $db = Db::getInstance();
-        $req = $db->prepare('SELECT `username`, `password`, `email`, `lastlogin`, `active` FROM `users` WHERE `email` = :email LIMIT 1');
+        $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users WHERE email = :email LIMIT 1');
         $req->execute(array('email' => $email));
         $user = $req->fetch();
-        return User::create()->set_username($user['username'])->set_password($user['password'])->set_email($user['email'])->set_lastlogin($user['lastlogin'])->set_active($user['active']);
+        return User::create()
+            ->set_username($user['username'])
+            ->set_display_name($user['display_name'])
+            ->set_password($user['password'])
+            ->set_email($user['email'])
+            ->set_last_login($user['lastlogin'])
+            ->set_is_active($user['active']);
     }
 
-    public function add_user($username, $password, $email, $lastlogin, $active)
+    // INSERT INTO users (username, display_name, password, email) VALUES ('kushal', 'kushal', '$2b$12$bVGt6HWAxldbT4f2krB02uPQJTv6vWlWZjVH33.JdbP6ToA4THt2W', 'khada@qc.cuny.edu')
+
+    public function add_user($username, $display_name, $password, $email, $active)
     {
         $db = Db::getInstance();
-        $req = $db->prepare('INSERT INTO `users`(`username`, `password`, `email`, `lastlogin`, `active`) VALUES (:username, :password, :email, :lastlogin, :active)');
+        $req = $db->prepare('INSERT INTO users (username, display_name, password, email, last_login) VALUES (:username, :display_name, :password, :email)');
         $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
+        $req->bindParam(':display_name', $display_name, \PDO::PARAM_STR, 255);
         $req->bindParam(':password', $password, \PDO::PARAM_STR, 255);
         $req->bindParam(':email', $email, \PDO::PARAM_STR, 255);
-        $req->bindParam(':lastlogin', $lastlogin, \PDO::PARAM_STR, 255);
-        $req->bindParam(':active', $active, \PDO::PARAM_STR, 255);
         $req->execute();
     }
 
     public function verify_password($input)
     {
         if (password_verify($input, $this->password)) {
-           return true;
+            return true;
         } else {
             return false;
         }
