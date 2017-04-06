@@ -7,4 +7,6 @@ if ($user2->verifyPassword('hunter2')) { echo 'huge success!'; } else { echo 'de
 
 if ($user->getUsername() == $user2->getUsername()) {
     echo 'both users are the same';
+} else {
+    echo 'not the same at all';
 }
