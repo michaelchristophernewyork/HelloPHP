@@ -17,15 +17,30 @@ class User
     {
     }
 
-    private function setIsActive($input)
+    public static function fetchAll()
     {
-        $this->isActive = $input;
-        return $this;
-    }    
-    
-    private function setIsAdministrator($input)
+        $db = Db::getInstance();
+        $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users');
+        $req->execute();
+        $users = array();
+        foreach ($req->fetchAll() as $user) {
+            array_push($users, User::create()
+                ->setUsername($user['username'])
+                ->setDisplayName($user['display_name'])
+                ->setPassword($user['password'])
+                ->setEmail($user['email'])
+                ->setLastLogin($user['last_login'])
+                ->setIsActive($user['is_active'])
+                ->setIsAdministrator($user['is_administrator'])
+                ->setIsReporter($user['active'])
+                ->setIsBanned($user['is_banned']));
+        }
+        return $users;
+    }
+
+    private function setIsBanned($input)
     {
-        $this->isAdministrator = $input;
+        $this->active = $input;
         return $this;
     }
 
@@ -35,9 +50,15 @@ class User
         return $this;
     }
 
-    private function setIsBanned($input)
+    private function setIsAdministrator($input)
     {
-        $this->active = $input;
+        $this->isAdministrator = $input;
+        return $this;
+    }
+
+    private function setIsActive($input)
+    {
+        $this->isActive = $input;
         return $this;
     }
 
@@ -59,12 +80,6 @@ class User
         return $this;
     }
 
-    private function setUsername($input)
-    {
-        $this->username = $input;
-        return $this;
-    }
-
     private function setDisplayName($input)
     {
         if ($input != null)
@@ -76,31 +91,21 @@ class User
         return $this;
     }
 
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    private function setUsername($input)
+    {
+        $this->username = $input;
+        return $this;
+    }
+
     public static function create()
     {
         $instance = new self();
         return $instance;
-    }
-
-    public static function fetchAll()
-    {
-        $db = Db::getInstance();
-        $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users');
-        $req->execute();
-        $users = array();
-        foreach ($req->fetchAll() as $user) {
-            array_push($users, User::create()
-                ->setUsername($user['username'])
-                ->setDisplayName($user['display_name'])
-                ->setPassword($user['password'])
-                ->setEmail($user['email'])
-                ->setLastLogin($user['last_login'])
-                ->setIsActive($user['is_active'])
-                ->setIsAdministrator($user['is_administrator'])
-                ->setIsReporter($user['active'])
-                ->setIsBanned($user['is_banned']));
-        }
-        return $users;
     }
 
     public static function fetchByUsername($username)
@@ -130,6 +135,17 @@ class User
         $req->execute();
     }
 
+    public static function addUser($username, $displayName, $password, $email, $active)
+    {
+        $db = Db::getInstance();
+        $req = $db->prepare('INSERT INTO users (username, display_name, password, email, last_login) VALUES (:username, :display_name, :password, :email)');
+        $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
+        $req->bindParam(':display_name', $displayName, \PDO::PARAM_STR, 255);
+        $req->bindParam(':password', $password, \PDO::PARAM_STR, 255);
+        $req->bindParam(':email', $email, \PDO::PARAM_STR, 255);
+        $req->execute();
+    }
+
     public function getEmail()
     {
         return $this->email;
@@ -140,10 +156,7 @@ class User
         return $this->display_name;
     }
 
-    public function getUsername()
-    {
-        return $this->username;
-    }
+    // INSERT INTO users (username, display_name, password, email) VALUES ('kushal', 'kushal', '$2b$12$bVGt6HWAxldbT4f2krB02uPQJTv6vWlWZjVH33.JdbP6ToA4THt2W', 'khada@qc.cuny.edu')
 
     function fetchByEmail($email)
     {
@@ -161,19 +174,6 @@ class User
                 ->setIsAdministrator($user['is_administrator'])
                 ->setIsReporter($user['active'])
                 ->setIsBanned($user['is_banned']);
-    }
-
-    // INSERT INTO users (username, display_name, password, email) VALUES ('kushal', 'kushal', '$2b$12$bVGt6HWAxldbT4f2krB02uPQJTv6vWlWZjVH33.JdbP6ToA4THt2W', 'khada@qc.cuny.edu')
-
-    public function addUser($username, $displayName, $password, $email, $active)
-    {
-        $db = Db::getInstance();
-        $req = $db->prepare('INSERT INTO users (username, display_name, password, email, last_login) VALUES (:username, :display_name, :password, :email)');
-        $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
-        $req->bindParam(':display_name', $displayName, \PDO::PARAM_STR, 255);
-        $req->bindParam(':password', $password, \PDO::PARAM_STR, 255);
-        $req->bindParam(':email', $email, \PDO::PARAM_STR, 255);
-        $req->execute();
     }
 
     public function verifyPassword($input)
