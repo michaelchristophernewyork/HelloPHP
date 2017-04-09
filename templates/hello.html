@@ -1,10 +1,16 @@
-<!-- templates/homepage.twig -->
-<h1>{{ pageTitle }}</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <ul id="navigation">
+        {% for item in navigation %}
+            <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
+        {% endfor %}
+        </ul>
 
-<div class="row">
-    {% for product in products %}
-        <div class="span4">
-            <h2>{{ product }}</h2>
-        </div>
-    {% endfor %}
-</div>
+        <h1>My Webpage</h1>
+        {{ a_variable }}
+    </body>
+</html>

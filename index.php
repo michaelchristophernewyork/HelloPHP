@@ -3,11 +3,10 @@ require_once('vendor/autoload.php');
 
 $loader = new Twig_Loader_Filesystem('templates');
 $twig = new Twig_Environment($loader);
-// setup some variables
-$pageTitle = 'Suit Up!';
+
 echo $twig->render('hello.html', array(
-    'pageTitle' => 'Welcome to Penguins R Us!',
-    'products' => array(
+    'a_variable' => 'Welcome to Penguins R Us!',
+    'navigation' => array(
         'Tuxedo',
         'Bow tie',
         'Black Boxers',
