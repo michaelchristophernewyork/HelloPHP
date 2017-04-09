@@ -135,7 +135,7 @@ class User
         $req->execute();
     }
 
-    public static function addUser($username, $displayName, $password, $email, $active)
+    public static function addUser($username, $displayName, $password, $email)
     {
         $db = Db::getInstance();
         $req = $db->prepare('INSERT INTO users (username, display_name, password, email, last_login) VALUES (:username, :display_name, :password, :email)');

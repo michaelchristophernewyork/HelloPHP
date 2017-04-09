@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6fb52f32-f852-4d1b-b77f-64149a2a0808" name="Default" comment="get display name">
+    <list default="true" id="6fb52f32-f852-4d1b-b77f-64149a2a0808" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/User.php" afterPath="$PROJECT_DIR$/model/User.php" />
@@ -28,8 +28,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            <state relative-caret-position="187">
+              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -48,14 +48,14 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="140" column="78" lean-forward="true" selection-start-line="140" selection-start-column="78" selection-end-line="140" selection-end-column="78" />
+            <state relative-caret-position="295">
+              <caret line="137" column="77" lean-forward="false" selection-start-line="137" selection-start-column="77" selection-end-line="137" selection-end-column="77" />
               <folding>
-                <marker date="1491766432468" expanded="true" signature="417:539" ph="SELECT usern... users" />
-                <marker date="1491766432468" expanded="true" signature="2654:2803" ph="SELECT usern... users" />
-                <marker date="1491766432468" expanded="true" signature="3510:3554" ph="DELETE FROM " />
-                <marker date="1491766432468" expanded="true" signature="3817:3941" ph="INSERT INTO users... " />
-                <marker date="1491766432468" expanded="true" signature="4704:4855" ph="SELECT usern... users" />
+                <marker date="1491766687332" expanded="true" signature="417:539" ph="SELECT usern... users" />
+                <marker date="1491766687332" expanded="true" signature="2654:2803" ph="SELECT usern... users" />
+                <marker date="1491766687332" expanded="true" signature="3510:3554" ph="DELETE FROM " />
+                <marker date="1491766687332" expanded="true" signature="3808:3932" ph="INSERT INTO users... " />
+                <marker date="1491766687332" expanded="true" signature="4695:4846" ph="SELECT usern... users" />
               </folding>
             </state>
           </provider>
@@ -290,7 +290,7 @@
       <option name="presentableId" value="Default" />
       <updated>1491489838670</updated>
       <workItem from="1491489840399" duration="3912000" />
-      <workItem from="1491757420052" duration="2624000" />
+      <workItem from="1491757420052" duration="2905000" />
     </task>
     <task id="LOCAL-00001" summary="say both users are the same">
       <created>1491489986369</created>
@@ -334,11 +334,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491765051394</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="get display name">
+      <created>1491766449845</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1491766449845</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6536000" />
+    <option name="totallyTimeSpent" value="6817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1932" height="1057" extended-state="0" />
@@ -448,22 +455,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="140" column="78" lean-forward="true" selection-start-line="140" selection-start-column="78" selection-end-line="140" selection-end-column="78" />
+        <state relative-caret-position="295">
+          <caret line="137" column="77" lean-forward="false" selection-start-line="137" selection-start-column="77" selection-end-line="137" selection-end-column="77" />
           <folding>
-            <marker date="1491766432468" expanded="true" signature="417:539" ph="SELECT usern... users" />
-            <marker date="1491766432468" expanded="true" signature="2654:2803" ph="SELECT usern... users" />
-            <marker date="1491766432468" expanded="true" signature="3510:3554" ph="DELETE FROM " />
-            <marker date="1491766432468" expanded="true" signature="3817:3941" ph="INSERT INTO users... " />
-            <marker date="1491766432468" expanded="true" signature="4704:4855" ph="SELECT usern... users" />
+            <marker date="1491766687332" expanded="true" signature="417:539" ph="SELECT usern... users" />
+            <marker date="1491766687332" expanded="true" signature="2654:2803" ph="SELECT usern... users" />
+            <marker date="1491766687332" expanded="true" signature="3510:3554" ph="DELETE FROM " />
+            <marker date="1491766687332" expanded="true" signature="3808:3932" ph="INSERT INTO users... " />
+            <marker date="1491766687332" expanded="true" signature="4695:4846" ph="SELECT usern... users" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        <state relative-caret-position="187">
+          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding />
         </state>
       </provider>
