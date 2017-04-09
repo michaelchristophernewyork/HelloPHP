@@ -6,5 +6,5 @@ $twig = new Twig_Environment($loader, array(
     'cache' => '/path/to/compilation_cache',
 ));
 
-$template = $twig->load('index.html');
+$template = $twig->load('hello.html');
 echo $template->render(array('the' => 'variables', 'go' => 'here'));
