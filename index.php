@@ -7,8 +7,9 @@ $twig = new Twig_Environment($loader);
 echo $twig->render('hello.html', array(
     'a_variable' => 'Welcome to Twig!',
     'navigation' => array(
-        'Tuxedo',
-        'Bow tie',
-        'Black Boxers',
+        'header' => array (
+            'href' => 'https://www.google.com',
+            'caption' => 'Google dot com'
+        )
     ),
 ));
