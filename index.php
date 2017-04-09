@@ -13,4 +13,11 @@ $products = array(
     new Product('Penguin Accessories', 'swatter.png'),
     new Product('Super Cool Penguin', 'super-cool.png'),
 );
-echo $twig->render('hello.html', array('the' => 'variables', 'go' => 'here'));
+echo $twig->render('hello.html', array(
+    'pageTitle' => 'Welcome to Penguins R Us!',
+    'products' => array(
+        'Tuxedo',
+        'Bow tie',
+        'Black Boxers',
+    ),
+));
