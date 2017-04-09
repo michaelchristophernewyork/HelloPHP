@@ -5,7 +5,7 @@ $loader = new Twig_Loader_Filesystem('templates');
 $twig = new Twig_Environment($loader);
 
 echo $twig->render('hello.html', array(
-    'a_variable' => 'Welcome to Penguins R Us!',
+    'a_variable' => 'Welcome to Twig!',
     'navigation' => array(
         'Tuxedo',
         'Bow tie',
