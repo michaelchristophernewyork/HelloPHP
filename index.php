@@ -1,4 +1,4 @@
 <?php
 require_once('vendor/autoload.php');
-
-$user1 = \model\User::fetchByUsername('admin');
+$db = Db::getInstance();
+$user1 = \model\User::fetchByUsername($db, 'admin');

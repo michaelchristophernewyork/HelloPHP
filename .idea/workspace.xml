@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6fb52f32-f852-4d1b-b77f-64149a2a0808" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/User.php" afterPath="$PROJECT_DIR$/model/User.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,27 +25,27 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="51">
+              <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="255">
               <caret line="111" column="5" lean-forward="false" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
               <folding>
-                <marker date="1491831292979" expanded="true" signature="417:539" ph="SELECT usern... users" />
-                <marker date="1491831292979" expanded="true" signature="2630:2779" ph="SELECT usern... users" />
-                <marker date="1491831292979" expanded="true" signature="3486:3530" ph="DELETE FROM " />
-                <marker date="1491831292979" expanded="true" signature="3784:3908" ph="INSERT INTO users... " />
-                <marker date="1491831292979" expanded="true" signature="4833:4984" ph="SELECT usern... users" />
+                <marker date="1491831586227" expanded="true" signature="417:539" ph="SELECT usern... users" />
+                <marker date="1491831586227" expanded="true" signature="2602:2751" ph="SELECT usern... users" />
+                <marker date="1491831586227" expanded="true" signature="3458:3502" ph="DELETE FROM " />
+                <marker date="1491831586227" expanded="true" signature="3756:3880" ph="INSERT INTO users... " />
+                <marker date="1491831586227" expanded="true" signature="4805:4956" ph="SELECT usern... users" />
               </folding>
             </state>
           </provider>
@@ -99,8 +100,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/templates/hello.html" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/model/User.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -268,7 +269,7 @@
       <option name="presentableId" value="Default" />
       <updated>1491489838670</updated>
       <workItem from="1491489840399" duration="3912000" />
-      <workItem from="1491757420052" duration="9000000" />
+      <workItem from="1491757420052" duration="9262000" />
     </task>
     <task id="LOCAL-00001" summary="say both users are the same">
       <created>1491489986369</created>
@@ -417,11 +418,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491831180258</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="remove bug">
+      <created>1491831357501</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1491831357501</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12912000" />
+    <option name="totallyTimeSpent" value="13174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1932" height="1057" extended-state="0" />
@@ -471,7 +479,8 @@
     <MESSAGE value="remove more code" />
     <MESSAGE value="remove everything" />
     <MESSAGE value="recreate bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="recreate bug" />
+    <MESSAGE value="remove bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove bug" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -540,25 +549,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/model/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="111" column="5" lean-forward="false" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+          <folding>
+            <marker date="1491831586227" expanded="true" signature="417:539" ph="SELECT usern... users" />
+            <marker date="1491831586227" expanded="true" signature="2602:2751" ph="SELECT usern... users" />
+            <marker date="1491831586227" expanded="true" signature="3458:3502" ph="DELETE FROM " />
+            <marker date="1491831586227" expanded="true" signature="3756:3880" ph="INSERT INTO users... " />
+            <marker date="1491831586227" expanded="true" signature="4805:4956" ph="SELECT usern... users" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/User.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="111" column="5" lean-forward="false" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
-          <folding>
-            <marker date="1491831292979" expanded="true" signature="417:539" ph="SELECT usern... users" />
-            <marker date="1491831292979" expanded="true" signature="2630:2779" ph="SELECT usern... users" />
-            <marker date="1491831292979" expanded="true" signature="3486:3530" ph="DELETE FROM " />
-            <marker date="1491831292979" expanded="true" signature="3784:3908" ph="INSERT INTO users... " />
-            <marker date="1491831292979" expanded="true" signature="4833:4984" ph="SELECT usern... users" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
