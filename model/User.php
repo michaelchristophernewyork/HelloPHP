@@ -108,7 +108,7 @@ class User
         return $instance;
     }
 
-    public static function fetchByUsername($db, $username)
+    public static function fetchByUsername(DB $db, $username)
     {
         $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users WHERE username = :username');
         $req->execute(array('username' => $username));
