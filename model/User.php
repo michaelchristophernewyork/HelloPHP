@@ -146,17 +146,23 @@ class User
         $req->execute();
     }
 
+    public static function hashPassword($input)
+    {
+        $options = ['cost' => 12,];
+        return password_hash($input, PASSWORD_BCRYPT, $options);
+    }
+
     public function getEmail()
     {
         return $this->email;
     }
 
+    // INSERT INTO users (username, display_name, password, email) VALUES ('kushal', 'kushal', '$2b$12$bVGt6HWAxldbT4f2krB02uPQJTv6vWlWZjVH33.JdbP6ToA4THt2W', 'khada@qc.cuny.edu')
+
     public function getDisplayName()
     {
         return $this->display_name;
     }
-
-    // INSERT INTO users (username, display_name, password, email) VALUES ('kushal', 'kushal', '$2b$12$bVGt6HWAxldbT4f2krB02uPQJTv6vWlWZjVH33.JdbP6ToA4THt2W', 'khada@qc.cuny.edu')
 
     function fetchByEmail($email)
     {
