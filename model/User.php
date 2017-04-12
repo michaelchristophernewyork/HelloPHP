@@ -127,7 +127,7 @@ class User
     public static function removeUser(\PDO $db, $username)
     {
         $req = $db->prepare('DELETE FROM users WHERE username = :username');
-        $req->bindParam(':username', $username, \\PDO::PARAM_STR, 255);
+        $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
         $req->execute();
     }
 
@@ -135,10 +135,10 @@ class User
     {
         $db = Db::getInstance();
         $req = $db->prepare('INSERT INTO users (username, display_name, password, email, last_login) VALUES (:username, :display_name, :password, :email)');
-        $req->bindParam(':username', $username, \\PDO::PARAM_STR, 255);
-        $req->bindParam(':display_name', $displayName, \\PDO::PARAM_STR, 255);
-        $req->bindParam(':password', $password, \\PDO::PARAM_STR, 255);
-        $req->bindParam(':email', $email, \\PDO::PARAM_STR, 255);
+        $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
+        $req->bindParam(':display_name', $displayName, \PDO::PARAM_STR, 255);
+        $req->bindParam(':password', $password, \PDO::PARAM_STR, 255);
+        $req->bindParam(':email', $email, \PDO::PARAM_STR, 255);
         $req->execute();
     }
 
