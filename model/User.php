@@ -18,7 +18,7 @@ class User
     {
     }
 
-    public static function fetchAll(PDO $db)
+    public static function fetchAll(\PDO $db)
     {
         $req = $db->prepare('SELECT id, username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users');
         $req->execute();
@@ -107,7 +107,7 @@ class User
         return $instance;
     }
 
-    public static function fetchByUsername(PDO $db, $username)
+    public static function fetchByUsername(\PDO $db, $username)
     {
         $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users WHERE username = :username');
         $req->execute(array('username' => $username));
@@ -124,10 +124,10 @@ class User
             ->setIsBanned($user['is_banned']);
     }
 
-    public static function removeUser(PDO $db, $username)
+    public static function removeUser(\PDO $db, $username)
     {
         $req = $db->prepare('DELETE FROM users WHERE username = :username');
-        $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
+        $req->bindParam(':username', $username, \\PDO::PARAM_STR, 255);
         $req->execute();
     }
 
@@ -135,10 +135,10 @@ class User
     {
         $db = Db::getInstance();
         $req = $db->prepare('INSERT INTO users (username, display_name, password, email, last_login) VALUES (:username, :display_name, :password, :email)');
-        $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
-        $req->bindParam(':display_name', $displayName, \PDO::PARAM_STR, 255);
-        $req->bindParam(':password', $password, \PDO::PARAM_STR, 255);
-        $req->bindParam(':email', $email, \PDO::PARAM_STR, 255);
+        $req->bindParam(':username', $username, \\PDO::PARAM_STR, 255);
+        $req->bindParam(':display_name', $displayName, \\PDO::PARAM_STR, 255);
+        $req->bindParam(':password', $password, \\PDO::PARAM_STR, 255);
+        $req->bindParam(':email', $email, \\PDO::PARAM_STR, 255);
         $req->execute();
     }
 
@@ -176,7 +176,7 @@ class User
         return $this->display_name;
     }
 
-    function fetchByEmail(PDO $db, $email)
+    function fetchByEmail(\PDO $db, $email)
     {
         $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users WHERE email = :email LIMIT 1');
         $req->execute(array('email' => $email));
