@@ -134,7 +134,7 @@ class User
     public static function addUser($username, $displayName, $password, $email)
     {
         $db = Db::getInstance();
-        $req = $db->prepare('INSERT INTO users (username, display_name, password, email, last_login) VALUES (:username, :display_name, :password, :email)');
+        $req = $db->prepare('INSERT INTO users (username, display_name, password, email) VALUES (:username, :display_name, :password, :email)');
         $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
         $req->bindParam(':display_name', $displayName, \PDO::PARAM_STR, 255);
         $req->bindParam(':password', $password, \PDO::PARAM_STR, 255);
@@ -173,7 +173,7 @@ class User
 
     public function getDisplayName()
     {
-        return $this->display_name;
+        return $this->displayName;
     }
 
     function fetchByEmail(\PDO $db, $email)
@@ -202,11 +202,11 @@ class User
         }
     }
 
-    public function addUserLdap($username, $setting)
+    public function addUserLdap($username, $settings)
     {
         $this->setUsername($username);
-        $this->setEmail($this->ReturnEmailAddress($username, \model\Setting::fetch_all()));
-        $this->setDisplayName($this->ReturnDisplayName($username, \model\Setting::fetch_all()));
+        $this->setEmail($this->ReturnEmailAddress($username, $settings));
+        $this->setDisplayName($this->ReturnDisplayName($username, $settings));
         return $this;
     }
 

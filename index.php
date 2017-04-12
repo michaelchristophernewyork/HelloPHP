@@ -1,8 +1,7 @@
 <?php
 require_once('vendor/autoload.php');
 $db = \model\Db::getInstance();
-$user1 = \model\User::fetchByUsername($db, 'admin');
-echo $user1->getEmail();
+$settings = \model\Setting::fetch_all();
 $user2 = new \model\User();
-$user2->addUserLdap('khada100');
+$user2->addUserLdap('khada100', $settings);
 echo $user2->getEmail();
