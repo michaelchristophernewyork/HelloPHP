@@ -19,7 +19,7 @@ class Setting
         $db = Db::getInstance();
         $q = $db->query('SELECT name, value FROM settings');
         foreach ($q->fetchAll() as $row) {
-            $settings[$row['settingname']] = $row['settingvalue'];
+            $settings[$row['name']] = $row['value'];
         }
         return $settings;
     }
@@ -51,7 +51,7 @@ class Setting
     public static function update($settingname, $settingvalue): bool
     {
         $db = Db::getInstance();
-        $req = $db->prepare('UPDATE settings SET value = :settingvalue WHERE name = :name');
+        $req = $db->prepare('UPDATE settings SET value = :value WHERE name = :name');
         $req->bindParam(':name', $settingname, \PDO::PARAM_STR);
         $req->bindParam(':value', $settingvalue, \PDO::PARAM_STR);
         $req->execute();
