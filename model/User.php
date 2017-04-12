@@ -1,4 +1,5 @@
 <?php
+
 namespace model;
 class User
 {
@@ -17,10 +18,9 @@ class User
     {
     }
 
-    public static function fetchAll()
+    public static function fetchAll(PDO $db)
     {
-        $db = Db::getInstance();
-        $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users');
+        $req = $db->prepare('SELECT id, username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users');
         $req->execute();
         $users = array();
         foreach ($req->fetchAll() as $user) {
@@ -82,8 +82,7 @@ class User
 
     private function setDisplayName($input)
     {
-        if ($input != null)
-        {
+        if ($input != null) {
             $this->displayName = $input;
         } else {
             $this->displayName = $this->getUsername();
@@ -114,20 +113,19 @@ class User
         $req->execute(array('username' => $username));
         $user = $req->fetch();
         return User::create()
-                ->setUsername($user['username'])
-                ->setDisplayName($user['display_name'])
-                ->setPassword($user['password'])
-                ->setEmail($user['email'])
-                ->setLastLogin($user['last_login'])
-                ->setIsActive($user['is_active'])
-                ->setIsAdministrator($user['is_administrator'])
-                ->setIsReporter($user['active'])
-                ->setIsBanned($user['is_banned']);
+            ->setUsername($user['username'])
+            ->setDisplayName($user['display_name'])
+            ->setPassword($user['password'])
+            ->setEmail($user['email'])
+            ->setLastLogin($user['last_login'])
+            ->setIsActive($user['is_active'])
+            ->setIsAdministrator($user['is_administrator'])
+            ->setIsReporter($user['active'])
+            ->setIsBanned($user['is_banned']);
     }
 
-    public static function removeUser($username)
+    public static function removeUser(PDO $db, $username)
     {
-        $db = Db::getInstance();
         $req = $db->prepare('DELETE FROM users WHERE username = :username');
         $req->bindParam(':username', $username, \PDO::PARAM_STR, 255);
         $req->execute();
@@ -150,6 +148,22 @@ class User
         return password_hash($input, PASSWORD_BCRYPT, $options);
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastLogin()
+    {
+        return $this->lastLogin;
+    }
+
     public function getEmail()
     {
         return $this->email;
@@ -162,22 +176,21 @@ class User
         return $this->display_name;
     }
 
-    function fetchByEmail($email)
+    function fetchByEmail(PDO $db, $email)
     {
-        $db = Db::getInstance();
         $req = $db->prepare('SELECT username, display_name, password, email, last_login, is_active, is_administrator, is_reporter, is_banned FROM users WHERE email = :email LIMIT 1');
         $req->execute(array('email' => $email));
         $user = $req->fetch();
         return User::create()
-                ->setUsername($user['username'])
-                ->setDisplayName($user['display_name'])
-                ->setPassword($user['password'])
-                ->setEmail($user['email'])
-                ->setLastLogin($user['last_login'])
-                ->setIsActive($user['is_active'])
-                ->setIsAdministrator($user['is_administrator'])
-                ->setIsReporter($user['active'])
-                ->setIsBanned($user['is_banned']);
+            ->setUsername($user['username'])
+            ->setDisplayName($user['display_name'])
+            ->setPassword($user['password'])
+            ->setEmail($user['email'])
+            ->setLastLogin($user['last_login'])
+            ->setIsActive($user['is_active'])
+            ->setIsAdministrator($user['is_administrator'])
+            ->setIsReporter($user['active'])
+            ->setIsBanned($user['is_banned']);
     }
 
     public function verifyPassword($input)
@@ -209,11 +222,13 @@ class User
         $password = $settings["service_password"];
         $ldap = ldap_connect($ldapserver);
         if ($bind = ldap_bind($ldap, $qc_username, $password)) {
-            $result = ldap_search($ldap, "", "(CN=$inputUsername)") or die ("Error in search query: " . ldap_error($ldap));
-            $data = ldap_get_entries($ldap, $result);
-            if (isset($data[0][$input_parameter][0])) {
-                return $data[0][$input_parameter][0];
+            $result = ldap_search($ldap, "", "(CN=$inputUsername)");
+            if ($result != FALSE) {
+                $data = ldap_get_entries($ldap, $result);
+                if (isset($data[0][$input_parameter][0])) {
+                    return $data[0][$input_parameter][0];
 
+                }
             }
         }
         ldap_close($ldap);
