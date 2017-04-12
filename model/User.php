@@ -202,11 +202,11 @@ class User
         }
     }
 
-    public function addUserLdap($username)
+    public function addUserLdap($username, $setting)
     {
-        $this->set_username($username);
-        $this->set_email($this->ReturnEmailAddress($username, \model\Setting::fetch_all()));
-        $this->set_displayname($this->ReturnDisplayName($username, \model\Setting::fetch_all()));
+        $this->setUsername($username);
+        $this->setEmail($this->ReturnEmailAddress($username, \model\Setting::fetch_all()));
+        $this->setDisplayName($this->ReturnDisplayName($username, \model\Setting::fetch_all()));
         return $this;
     }
 
