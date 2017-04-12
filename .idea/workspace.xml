@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fb52f32-f852-4d1b-b77f-64149a2a0808" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/Setting.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/User.php" afterPath="$PROJECT_DIR$/model/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Setting.php" afterPath="$PROJECT_DIR$/model/Setting.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/User.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="386">
@@ -52,15 +50,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Setting.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Setting.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/Setting.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="53" column="46" lean-forward="false" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+            <state relative-caret-position="731">
+              <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
               <folding>
-                <marker date="1491974378914" expanded="true" signature="325:371" ph="SELECT setti... settings" />
-                <marker date="1491974378914" expanded="true" signature="642:721" ph="SELECT setti... settings" />
-                <marker date="1491974378914" expanded="true" signature="1419:1500" ph="UPDATE setti... " />
+                <marker date="1491974544633" expanded="true" signature="326:358" ph="SELECT setti... settings" />
+                <marker date="1491974544633" expanded="true" signature="629:680" ph="SELECT setti... settings" />
+                <marker date="1491974544633" expanded="true" signature="1357:1417" ph="UPDATE setti... " />
               </folding>
             </state>
           </provider>
@@ -99,8 +97,8 @@
       <file leaf-file-name="create_tables.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sql/create_tables.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="50" column="27" lean-forward="false" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+            <state relative-caret-position="531">
+              <caret line="53" column="12" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="12" />
               <folding>
                 <marker date="1491970614249" expanded="true" signature="7749:7828" ph="{&quot;0&quot;: &quot;Undergraduate&quot;...}" />
               </folding>
@@ -126,6 +124,7 @@
       <find>\\PDO</find>
       <find>password</find>
       <find>set_username</find>
+      <find>setting</find>
     </findStrings>
     <replaceStrings>
       <replace>PHP_EOL</replace>
@@ -313,7 +312,7 @@
       <workItem from="1491489840399" duration="3912000" />
       <workItem from="1491757420052" duration="13924000" />
       <workItem from="1491959258752" duration="496000" />
-      <workItem from="1491959766992" duration="4118000" />
+      <workItem from="1491959766992" duration="4271000" />
     </task>
     <task id="LOCAL-00001" summary="say both users are the same">
       <created>1491489986369</created>
@@ -539,11 +538,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491970827546</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="test add user ldap">
+      <created>1491974409067</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1491974409067</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22450000" />
+    <option name="totallyTimeSpent" value="22603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -758,33 +764,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/create_tables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="50" column="27" lean-forward="false" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-          <folding>
-            <marker date="1491970614249" expanded="true" signature="7749:7828" ph="{&quot;0&quot;: &quot;Undergraduate&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Setting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="46" lean-forward="false" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
-          <folding>
-            <marker date="1491974378914" expanded="true" signature="325:371" ph="SELECT setti... settings" />
-            <marker date="1491974378914" expanded="true" signature="642:721" ph="SELECT setti... settings" />
-            <marker date="1491974378914" expanded="true" signature="1419:1500" ph="UPDATE setti... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -798,6 +782,28 @@
             <marker date="1491974260678" expanded="true" signature="3376:3420" ph="DELETE FROM " />
             <marker date="1491974260678" expanded="true" signature="3674:3798" ph="INSERT INTO users... " />
             <marker date="1491974260678" expanded="true" signature="4922:5073" ph="SELECT usern... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/create_tables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="53" column="12" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="12" />
+          <folding>
+            <marker date="1491970614249" expanded="true" signature="7749:7828" ph="{&quot;0&quot;: &quot;Undergraduate&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Setting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding>
+            <marker date="1491974544633" expanded="true" signature="326:358" ph="SELECT setti... settings" />
+            <marker date="1491974544633" expanded="true" signature="629:680" ph="SELECT setti... settings" />
+            <marker date="1491974544633" expanded="true" signature="1357:1417" ph="UPDATE setti... " />
           </folding>
         </state>
       </provider>

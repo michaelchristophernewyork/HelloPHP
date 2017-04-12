@@ -17,7 +17,7 @@ class Setting
     {
         $settings = [];
         $db = Db::getInstance();
-        $q = $db->query('SELECT settingname, settingvalue FROM settings');
+        $q = $db->query('SELECT name, value FROM settings');
         foreach ($q->fetchAll() as $row) {
             $settings[$row['settingname']] = $row['settingvalue'];
         }
@@ -27,10 +27,10 @@ class Setting
     public static function find($settingname)
     {
         $db = Db::getInstance();
-        $req = $db->prepare('SELECT settingname, settingvalue FROM settings WHERE settingname = :settingname');
-        $req->execute(array('settingname' => $settingname));
+        $req = $db->prepare('SELECT name, value FROM settings WHERE name = :name');
+        $req->execute(array('name' => $settingname));
         $setting = $req->fetch();
-        $this_setting = new Setting($setting['settingname'], $setting['settingvalue']);
+        $this_setting = new Setting($setting['name'], $setting['value']);
         $this_setting->apply_rules();
         return $this_setting;
     }
@@ -51,9 +51,9 @@ class Setting
     public static function update($settingname, $settingvalue): bool
     {
         $db = Db::getInstance();
-        $req = $db->prepare('UPDATE settings SET settingvalue = :settingvalue WHERE settingname = :settingname');
-        $req->bindParam(':settingname', $settingname, \PDO::PARAM_STR);
-        $req->bindParam(':settingvalue', $settingvalue, \PDO::PARAM_STR);
+        $req = $db->prepare('UPDATE settings SET value = :settingvalue WHERE name = :name');
+        $req->bindParam(':name', $settingname, \PDO::PARAM_STR);
+        $req->bindParam(':value', $settingvalue, \PDO::PARAM_STR);
         $req->execute();
         return true;
     }
